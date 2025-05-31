@@ -4,236 +4,286 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pathomics - Advanced Pathology Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <a href="#" class="logo">Patho<span>mics</span></a>
-            <nav aria-label="Main navigation">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#payment-terms">Payment Terms</a></li>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-text">Patho<span>mics</span></span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services/histology.html" class="dropdown-item">Histology</a></li>
+                            <li><a href="services/immunohistochemistry.html" class="dropdown-item">Immunohistochemistry</a></li>
+                            <li><a href="services/multiplex-immunofluorescence.html" class="dropdown-item">Multiplex Immunofluorescence</a></li>
+                            <li><a href="services/tissue-microarray.html" class="dropdown-item">Tissue Microarray</a></li>
+                            <li><a href="services/antibody-validation.html" class="dropdown-item">Antibody Validation for IHC</a></li>
+                            <li><a href="services/digital-slide-scanning.html" class="dropdown-item">Digital Slide Scanning</a></li>
+                            <li><a href="services/imaging-analysis.html" class="dropdown-item">Imaging Analysis</a></li>
+                            <li><a href="services/positive-control-tissue-slides.html" class="dropdown-item">Positive Control Tissue Slides</a></li>
+                            <li><a href="services/ai-powered-pathology.html" class="dropdown-item">AI-Powered Pathology</a></li>
+                            <li><a href="services/biomarker-discovery.html" class="dropdown-item">Biomarker Discovery</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="payment-terms.html" class="nav-link">Payment Terms</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
                 </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Advanced Pathology Solutions for Precision Medicine</h1>
                 <p>Pathomics delivers cutting-edge pathology services with state-of-the-art technology and expert analysis for research and clinical applications.</p>
-                <a href="#services" class="btn">Explore Our Services</a>
+                <a href="#services" class="btn btn-secondary">Explore Our Services</a>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
+    <section id="services" class="section">
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
                 <p>Pathomics offers a comprehensive range of advanced pathology services to support your research and clinical needs.</p>
             </div>
-
             <div class="services-grid">
-                <!-- Histology Service -->
+                <!-- Histology -->
                 <div class="service-card">
-                    <div class="service-img">
-                        <img src="images/digital_pathology.jpeg" alt="Histology Service">
+                    <div class="service-card-img">
+                        <img src="images/histology.jpg" alt="Histology Services">
                     </div>
-                    <div class="service-content">
+                    <div class="service-card-content">
                         <h3>Histology</h3>
-                        <p>Our histology services include tissue processing, embedding, sectioning, and staining with a wide range of histochemical stains. We provide high-quality tissue preparations with rapid turnaround times and expert interpretation.</p>
-                        <a href="histology.html" class="read-more">Learn More</a>
+                        <p>Our histology services include tissue processing, embedding, sectioning, and staining with a wide range of histochemical stains.</p>
+                        <a href="services/histology.html" class="btn btn-outline">Learn More</a>
                     </div>
                 </div>
-
-                <!-- Immunohistochemistry Service -->
+                
+                <!-- Immunohistochemistry -->
                 <div class="service-card">
-                    <div class="service-img">
-                        <img src="images/immunohistochemistry.jpeg" alt="Immunohistochemistry Service">
+                    <div class="service-card-img">
+                        <img src="images/immunohistochemistry.jpg" alt="Immunohistochemistry Services">
                     </div>
-                    <div class="service-content">
+                    <div class="service-card-content">
                         <h3>Immunohistochemistry</h3>
-                        <p>Our immunohistochemistry (IHC) services detect specific antigens in tissue sections using validated antibodies. We offer single and multiplex IHC with quantitative analysis for biomarker expression in various tissue types.</p>
-                        <a href="mailto:hebing@yahoo.com" class="read-more">Learn More</a>
+                        <p>Our immunohistochemistry (IHC) services detect specific antigens in tissue sections using validated antibodies.</p>
+                        <a href="services/immunohistochemistry.html" class="btn btn-outline">Learn More</a>
                     </div>
                 </div>
-
-                <!-- Multiplex Immunofluorescence Service -->
+                
+                <!-- Multiplex Immunofluorescence -->
                 <div class="service-card">
-                    <div class="service-img">
-                        <img src="images/multiplex_immunofluorescence.png" alt="Multiplex Immunofluorescence Service">
+                    <div class="service-card-img">
+                        <img src="images/multiplex-immunofluorescence.jpg" alt="Multiplex Immunofluorescence Services">
                     </div>
-                    <div class="service-content">
+                    <div class="service-card-content">
                         <h3>Multiplex Immunofluorescence</h3>
-                        <p>Our multiplex immunofluorescence technology allows simultaneous detection of multiple biomarkers in a single tissue section, providing spatial context and cellular relationships for comprehensive tissue analysis.</p>
-                        <a href="mailto:hebing@yahoo.com" class="read-more">Learn More</a>
+                        <p>Our multiplex immunofluorescence technology allows simultaneous detection of multiple biomarkers in a single tissue section.</p>
+                        <a href="services/multiplex-immunofluorescence.html" class="btn btn-outline">Learn More</a>
                     </div>
                 </div>
-
-                <!-- Tissue Microarray Service -->
+                
+                <!-- Tissue Microarray -->
                 <div class="service-card">
-                    <div class="service-img">
-                        <img src="images/tissue_microarray.png" alt="Tissue Microarray Service">
+                    <div class="service-card-img">
+                        <img src="images/tissue-microarray.jpg" alt="Tissue Microarray Services">
                     </div>
-                    <div class="service-content">
+                    <div class="service-card-content">
                         <h3>Tissue Microarray</h3>
-                        <p>Our tissue microarray (TMA) services enable high-throughput analysis of multiple tissue samples on a single slide. We offer custom TMA construction, sectioning, and staining for efficient biomarker screening and validation.</p>
-                        <a href="mailto:hebing@yahoo.com" class="read-more">Learn More</a>
+                        <p>Our tissue microarray (TMA) services enable high-throughput analysis of multiple tissue samples on a single slide.</p>
+                        <a href="services/tissue-microarray.html" class="btn btn-outline">Learn More</a>
                     </div>
                 </div>
-
-                <!-- Antibody Validation for IHC Service -->
+                
+                <!-- Antibody Validation -->
                 <div class="service-card">
-                    <div class="service-img">
-                        <img src="images/antibody_validation.jpeg" alt="Antibody Validation for IHC Service">
+                    <div class="service-card-img">
+                        <img src="images/antibody-validation.jpg" alt="Antibody Validation Services">
                     </div>
-                    <div class="service-content">
+                    <div class="service-card-content">
                         <h3>Antibody Validation for IHC</h3>
-                        <p>We provide comprehensive antibody validation services for immunohistochemistry applications, ensuring specificity, sensitivity, and reproducibility of your antibodies across various tissue types and fixation conditions.</p>
-                        <a href="mailto:hebing@yahoo.com" class="read-more">Learn More</a>
+                        <p>We provide comprehensive antibody validation services for immunohistochemistry applications, ensuring specificity and sensitivity.</p>
+                        <a href="services/antibody-validation.html" class="btn btn-outline">Learn More</a>
                     </div>
                 </div>
-
-                <!-- Digital Slide Scanning Service -->
+                
+                <!-- Digital Slide Scanning -->
                 <div class="service-card">
-                    <div class="service-img">
-                        <img src="images/digital_slide_scanning.webp" alt="Digital Slide Scanning Service">
+                    <div class="service-card-img">
+                        <img src="images/digital-slide-scanning.jpg" alt="Digital Slide Scanning Services">
                     </div>
-                    <div class="service-content">
+                    <div class="service-card-content">
                         <h3>Digital Slide Scanning</h3>
-                        <p>Our digital slide scanning services convert glass slides into high-resolution digital images for remote viewing, sharing, and analysis. We offer whole slide imaging with rapid turnaround times and secure data storage options.</p>
-                        <a href="mailto:hebing@yahoo.com" class="read-more">Learn More</a>
+                        <p>Our digital slide scanning services convert glass slides into high-resolution digital images for remote viewing and analysis.</p>
+                        <a href="services/digital-slide-scanning.html" class="btn btn-outline">Learn More</a>
                     </div>
                 </div>
-
-                <!-- Imaging Analysis Service -->
+                
+                <!-- Imaging Analysis -->
                 <div class="service-card">
-                    <div class="service-img">
-                        <img src="images/imaging_analysis.png" alt="Imaging Analysis Service">
+                    <div class="service-card-img">
+                        <img src="images/imaging-analysis.jpg" alt="Imaging Analysis Services">
                     </div>
-                    <div class="service-content">
+                    <div class="service-card-content">
                         <h3>Imaging Analysis</h3>
-                        <p>Our advanced imaging analysis services utilize state-of-the-art algorithms and machine learning to quantify biomarker expression, cell populations, and tissue architecture from digital pathology images with high accuracy and reproducibility.</p>
-                        <a href="mailto:hebing@yahoo.com" class="read-more">Learn More</a>
+                        <p>Our advanced imaging analysis services utilize state-of-the-art algorithms and machine learning to quantify biomarker expression.</p>
+                        <a href="services/imaging-analysis.html" class="btn btn-outline">Learn More</a>
                     </div>
                 </div>
-
-                <!-- Positive Control Tissue Slides Service -->
+                
+                <!-- Positive Control Tissue Slides -->
                 <div class="service-card">
-                    <div class="service-img">
-                        <img src="images/antibody_validation.jpeg" alt="Positive Control Tissue Slides Service">
+                    <div class="service-card-img">
+                        <img src="images/positive-control-tissue-slides.jpg" alt="Positive Control Tissue Slides">
                     </div>
-                    <div class="service-content">
+                    <div class="service-card-content">
                         <h3>Positive Control Tissue Slides</h3>
-                        <p>We provide a comprehensive collection of positive control tissue slides for various biomarkers and applications. Our quality-controlled slides ensure reliable controls for your immunohistochemistry and research applications.</p>
-                        <a href="mailto:hebing@yahoo.com" class="read-more">Learn More</a>
+                        <p>We provide a comprehensive collection of positive control tissue slides for various biomarkers and applications.</p>
+                        <a href="services/positive-control-tissue-slides.html" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- AI-Powered Pathology -->
+                <div class="service-card">
+                    <div class="service-card-img">
+                        <img src="images/ai-powered-pathology.jpg" alt="AI-Powered Pathology Services">
+                    </div>
+                    <div class="service-card-content">
+                        <h3>AI-Powered Pathology</h3>
+                        <p>Our AI-powered pathology solutions enhance diagnostic accuracy and efficiency through advanced machine learning algorithms.</p>
+                        <a href="services/ai-powered-pathology.html" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Biomarker Discovery -->
+                <div class="service-card">
+                    <div class="service-card-img">
+                        <img src="images/biomarker-discovery.jpg" alt="Biomarker Discovery Services">
+                    </div>
+                    <div class="service-card-content">
+                        <h3>Biomarker Discovery</h3>
+                        <p>Our biomarker discovery services help identify and validate novel biomarkers for diagnostic, prognostic, and therapeutic applications.</p>
+                        <a href="services/biomarker-discovery.html" class="btn btn-outline">Learn More</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- About Section -->
+    <section class="section about">
         <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
-                <p>Get in touch with our team for inquiries, quotations, or to discuss your specific project requirements.</p>
-            </div>
-
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p><strong>Email:</strong> <a href="mailto:hebing@yahoo.com">hebing@yahoo.com</a></p>
-                    <p><strong>For Quotations:</strong> Please email us with your specific requirements, including:</p>
-                    <ul>
-                        <li>Service type</li>
-                        <li>Sample number</li>
-                        <li>Timeline</li>
-                        <li>Project details</li>
-                        <li>Your contact information</li>
-                    </ul>
-                    <p>Our team of experts is ready to assist you with your pathology needs and provide tailored solutions for your research or clinical applications.</p>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/about-pathomics.jpg" alt="About Pathomics">
+                </div>
+                <div class="about-text">
+                    <h2>Advancing Precision Medicine Through Pathology</h2>
+                    <p>At Pathomics, we are dedicated to advancing the field of pathology through cutting-edge technology and expert analysis. Our team of experienced pathologists and technicians work together to provide accurate, reliable, and timely results for your research and clinical needs.</p>
+                    <p>With state-of-the-art equipment and innovative methodologies, we offer a comprehensive range of pathology services designed to support your specific requirements. Whether you need routine histology services or advanced digital pathology solutions, we have the expertise and resources to deliver exceptional results.</p>
+                    <p>Our commitment to quality, precision, and customer satisfaction sets us apart in the field of pathology services. We work closely with our clients to understand their unique needs and provide tailored solutions that meet their research and clinical objectives.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Payment Terms Section -->
-    <section id="payment-terms" class="payment-terms">
+    <!-- Stats Section -->
+    <section class="section stats-section">
         <div class="container">
-            <div class="section-title">
-                <h2>Service Proclaim and Payment Terms</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" data-target="5000">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="200">0</div>
+                    <div class="stat-label">Research Partners</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Publications</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-label">Client Satisfaction (%)</div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="terms-container">
-                <h3>Service Proclaim</h3>
-                <p>At Pathomics, we are committed to delivering high-quality pathology services with precision, reliability, and efficiency. Our team of experienced pathologists and technicians utilizes state-of-the-art technology to provide accurate and timely results for your research and clinical needs.</p>
-                
-                <h3>Quotation Process</h3>
-                <p>All services are provided based on customized quotations tailored to your specific requirements. To request a quote, please contact us via email with detailed information about your project, including service type, sample number, and timeline.</p>
-                
-                <h3>Payment Terms</h3>
-                <ul class="terms-list">
-                    <li>A 50% deposit is required to initiate the project, with the remaining balance due upon completion of services.</li>
-                    <li>Payment methods include bank transfer, credit card, and purchase orders from established institutions.</li>
-                    <li>For academic institutions and non-profit organizations, special pricing may be available upon request.</li>
-                    <li>All invoices are due within 30 days of receipt unless otherwise specified in the service agreement.</li>
-                    <li>Rush services are available for an additional fee, subject to laboratory capacity.</li>
-                </ul>
-                
-                <h3>Confidentiality and Data Security</h3>
-                <p>We maintain strict confidentiality of all client information and research data. Our secure data management systems ensure the protection of your valuable intellectual property and comply with relevant data protection regulations.</p>
-                
-                <h3>Sample Requirements</h3>
-                <p>Specific sample preparation guidelines will be provided upon project initiation to ensure optimal results. Improper sample preparation may affect service quality and turnaround time.</p>
-                
-                <h3>Turnaround Time</h3>
-                <p>Standard turnaround times vary by service type and sample volume. Estimated completion times will be included in your quotation. We strive to meet all deadlines while maintaining our high-quality standards.</p>
-            </div>
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <h2>Ready to Advance Your Research?</h2>
+            <p>Contact us today to discuss your pathology service needs and receive a customized quotation tailored to your specific requirements.</p>
+            <a href="contact.html" class="btn btn-secondary">Contact Us</a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <h4>Pathomics</h4>
-                    <p>Advanced pathology services for precision medicine and research applications.</p>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>About Pathomics</h4>
+                    <p>Pathomics delivers cutting-edge pathology services with state-of-the-art technology and expert analysis for research and clinical applications.</p>
                 </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#">Histology</a></li>
-                        <li><a href="#">Immunohistochemistry</a></li>
-                        <li><a href="#">Multiplex Immunofluorescence</a></li>
-                        <li><a href="#">Tissue Microarray</a></li>
-                        <li><a href="#">Digital Pathology</a></li>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="payment-terms.html">Payment Terms</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="mailto:hebing@yahoo.com">hebing@yahoo.com</a></li>
+                <div class="footer-column">
+                    <h4>Contact Information</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Science Park, Research Avenue, City, Country</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@pathomics.com</li>
                     </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="footer-bottom">
                 <p>&copy; 2025 Pathomics. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
