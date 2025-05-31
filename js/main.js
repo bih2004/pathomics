@@ -83,18 +83,34 @@ const initDropdownMenus = () => {
 
 // Lazy loading images
 const initLazyLoading = () => {
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
-        img.classList.add('loaded');
-        observer.unobserve(img);
-      }
-    });
+  // Lazy Loading Images
+  const lazyImages = document.querySelectorAll('.lazy-load');
+  
+  const lazyLoadObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+              img.classList.add('loaded');
+              lazyLoadObserver.unobserve(img);
+          }
+      });
   });
-
-  document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
+  
+  lazyImages.forEach(img => lazyLoadObserver.observe(img));
+  
+  // Scroll Animations
+  const animatedElements = document.querySelectorAll('.animate-on-scroll');
+  
+  const animationObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+          }
+      });
+  });
+  
+  animatedElements.forEach(element => animationObserver.observe(element));
 };
 
 // Scroll-based header

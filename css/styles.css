@@ -197,6 +197,7 @@
     opacity: 1;
 }
 
+/* Modern Service Hero */
 .service-hero {
     position: relative;
     height: 60vh;
@@ -206,6 +207,7 @@
     justify-content: center;
     color: var(--light-text);
     overflow: hidden;
+    margin-bottom: 3rem;
 }
 
 .service-hero::before {
@@ -215,7 +217,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(45, 55, 72, 0.9), rgba(66, 153, 225, 0.8));
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
     z-index: 1;
 }
 
@@ -224,7 +226,48 @@
     z-index: 2;
     text-align: center;
     max-width: 800px;
-    padding: 0 var(--spacing-md);
+    padding: 0 2rem;
+}
+
+/* Modern Content Sections */
+.service-section {
+    margin: 4rem 0;
+    padding: 3rem 0;
+    background: var(--light-bg);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.feature-list li {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease;
+}
+
+.feature-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Modern Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .service-hero h1 {
@@ -302,39 +345,22 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  
-  .service-hero {
-    height: 50vh;
-  }
-  
-  .service-hero h1 {
-    font-size: 2.2rem;
-  }
-  
-  .nav-menu {
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background: var(--white);
-    flex-direction: column;
-    padding: var(--spacing-md);
-    transition: left 0.3s ease;
-  }
-  
-  .nav-menu.active {
-    left: 0;
-  }
-  
-  .hamburger {
-    display: block;
-  }
-}
+    .service-hero {
+        height: 40vh;
+    }
 
+    .service-hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+
+    .service-section {
+        padding: 2rem 1rem;
+    }
+}
 @media (max-width: 480px) {
   html {
     font-size: 14px;
