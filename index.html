@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathomics - Advanced Pathology Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c6fbb;
+            --primary-dark: #1a4d8c;
+            --secondary: #4a9d9c;
+            --accent: #e74c3c;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --success: #27ae60;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0,0,0,0.08);
+            --radius: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            background: #fff;
+            padding: 5px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-lg {
+            padding: 15px 35px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-secondary {
+            background: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background: transparent;
+            color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, rgba(44, 111, 187, 0.1) 0%, rgba(26, 77, 140, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(44, 111, 187, 0.1) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--primary-dark);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+        
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+        
+        .read-more:hover {
+            color: var(--primary-dark);
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Service Pages Navigation */
+        .services-nav {
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 20px 0;
+            margin-bottom: 60px;
+        }
+        
+        .services-nav-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .services-nav-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .service-nav-btn {
+            padding: 10px 25px;
+            background: rgba(44, 111, 187, 0.1);
+            color: var(--primary);
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .service-nav-btn:hover, .service-nav-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Service Page Content */
+        .service-page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .service-page.active {
+            display: block;
+        }
+        
+        .service-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .service-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-header p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .service-content-page {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .service-details h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .service-details p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+        
+        .benefits-list {
+            margin: 30px 0;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .benefits-list i {
+            color: var(--success);
+            margin-right: 10px;
+            font-size: 1.2rem;
+            margin-top: 3px;
+        }
+        
+        .service-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .back-to-services {
+            display: inline-block;
+            margin-top: 30px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .back-to-services i {
+            margin-right: 8px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--light);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            padding: 30px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .contact-info strong {
+            color: var(--primary-dark);
+        }
+        
+        .contact-form {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-form h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+        
+        .form-group input, 
+        .form-group textarea, 
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus, 
+        .form-group textarea:focus, 
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(44, 111, 187, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Payment Terms Section */
+        .payment-terms {
+            background: white;
+        }
+        
+        .terms-container {
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+        
+        .terms-container h3 {
+            color: var(--primary-dark);
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .terms-container p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .terms-list {
+            list-style: none;
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        .terms-list li {
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            color: var(--gray);
+        }
+        
+        .terms-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--success);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 80px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-col p {
+            color: #bbb;
+            margin-bottom: 20px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-col ul li a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .service-content-page {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .service-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .service-header h1 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">Patho<span>mics</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#payment-terms">Payment Terms</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Advanced Pathology Solutions for Precision Medicine</h1>
+                <p>Pathomics delivers cutting-edge pathology services with state-of-the-art technology and expert analysis for research and clinical applications.</p>
+                <a href="#services" class="btn btn-lg">Explore Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Navigation -->
+    <div class="services-nav">
+        <div class="container">
+            <div class="services-nav-container">
+                <div class="services-nav-links">
+                    <button class="service-nav-btn active" data-service="all">All Services</button>
+                    <button class="service-nav-btn" data-service="histology">Histology</button>
+                    <button class="service-nav-btn" data-service="ihc">IHC</button>
+                    <button class="service-nav-btn" data-service="mif">Multiplex IF</button>
+                    <button class="service-nav-btn" data-service="tma">Tissue Microarray</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Overview -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Pathomics offers a comprehensive range of advanced pathology services to support your research and clinical needs.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Histology Service -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <div style="background: linear-gradient(135deg, #4361ee, #3a0ca3); height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-microscope" style="font-size: 4rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Histology</h3>
+                        <p>Our histology services include tissue processing, embedding, sectioning, and staining with a wide range of histochemical stains.</p>
+                        <a href="#" class="read-more" data-service="histology">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Immunohistochemistry Service -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <div style="background: linear-gradient(135deg, #4cc9f0, #3a0ca3); height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-vial" style="font-size: 4rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Immunohistochemistry</h3>
+                        <p>Our IHC services detect specific antigens in tissue sections using validated antibodies for biomarker expression analysis.</p>
+                        <a href="#" class="read-more" data-service="ihc">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Multiplex Immunofluorescence Service -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <div style="background: linear-gradient(135deg, #7209b7, #3a0ca3); height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-project-diagram" style="font-size: 4rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Multiplex Immunofluorescence</h3>
+                        <p>Simultaneous detection of multiple biomarkers in a single tissue section for comprehensive tissue analysis.</p>
+                        <a href="#" class="read-more" data-service="mif">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Tissue Microarray Service -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <div style="background: linear-gradient(135deg, #f72585, #3a0ca3); height: 100%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-th" style="font-size: 4rem; color: white;"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Tissue Microarray</h3>
+                        <p>Custom TMA construction, sectioning, and staining for efficient biomarker screening and validation.</p>
+                        <a href="#" class="read-more" data-service="tma">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Pages -->
+    <section class="service-pages">
+        <div class="container">
+            <!-- Histology Service Page -->
+            <div id="histology" class="service-page">
+                <div class="service-header">
+                    <h1>Histology Services</h1>
+                    <p>Comprehensive histology solutions for precise tissue analysis and diagnostics</p>
+                </div>
+                
+                <div class="service-content-page">
+                    <div class="service-details">
+                        <h2>Advanced Tissue Processing</h2>
+                        <p>Our histology services provide high-quality tissue preparations with rapid turnaround times and expert interpretation. We utilize state-of-the-art equipment and techniques to ensure precise results for your research or clinical applications.</p>
+                        
+                        <div class="benefits-list">
+                            <h3>Key Benefits:</h3>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> <span>Complete tissue processing from fixation to slide preparation</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Wide range of histochemical staining options</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Specialized techniques for challenging tissues</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Expert quality control and validation</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span>Rapid turnaround times without compromising quality</span></li>
+                            </ul>
+                        </div>
+                        
+                        <a href="#contact" class="btn btn-secondary">Request a Quote</a>
+                        <a href="#" class="back-to-services"><i class="fas fa-arrow-left"></i> Back to Services</a>
+                    </div>
+                    
+                    <div class="service-image">
+                        <div style="background: linear-gradient(135deg, #4361ee, #3a0ca3); height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-microscope" style="font-size: 8rem; color: white; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- IHC Service Page -->
+            <div id="ihc" class="service-page">
+                <div class="service-header">
+                    <h1>Immunohistochemistry Services</h1>
+                    <p>Precision antigen detection for biomarker expression analysis</p>
+                </div>
+                
+                <div class="service-content-page">
+                    <div class="service-details">
+                        <h2>Advanced IHC Solutions</h2>
+                        <p>Our immunohistochemistry (IHC) services detect specific antigens in tissue sections using validated antibodies. We offer single and multiplex IHC with quantitative analysis for biomarker expression in various tissue types.</p>
+                        
+                        <div class="benefits-list">
+                            <h3>Our IHC Services:</h3>
+                            <ul>
+                                <li><i class="fas fa-vial"></i> <span>Antibody validation and optimization</span></li>
+                                <li><i class="fas fa-search"></i> <span>Single and multiplex IHC staining</span></li>
+                                <li><i class="fas fa-chart-bar"></i> <span>Quantitative image analysis</span></li>
+                                <li><i class="fas fa-clipboard-check"></i> <span>Quality control and validation</span></li>
+                                <li><i class="fas fa-project-diagram"></i> <span>Spatial relationship analysis</span></li>
+                            </ul>
+                        </div>
+                        
+                        <a href="#contact" class="btn btn-secondary">Request a Quote</a>
+                        <a href="#" class="back-to-services"><i class="fas fa-arrow-left"></i> Back to Services</a>
+                    </div>
+                    
+                    <div class="service-image">
+                        <div style="background: linear-gradient(135deg, #4cc9f0, #3a0ca3); height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-vial" style="font-size: 8rem; color: white; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional service pages would follow the same structure -->
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team for inquiries, quotations, or to discuss your specific project requirements.</p>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><strong>Email:</strong> <a href="mailto:hebing@yahoo.com">hebing@yahoo.com</a></p>
+                    <p><strong>For Quotations:</strong> Please email us with your specific requirements, including service type, sample number, and timeline for a customized quote.</p>
+                    <p>Our team of experts is ready to assist you with your pathology needs and provide tailored solutions for your research or clinical applications.</p>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Request a Quote</h3>
+                    <form id="quoteForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service of Interest</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a Service</option>
+                                <option value="histology">Histology</option>
+                                <option value="ihc">Immunohistochemistry</option>
+                                <option value="mif">Multiplex Immunofluorescence</option>
+                                <option value="tma">Tissue Microarray</option>
+                                <option value="scanning">Digital Slide Scanning</option>
+                                <option value="analysis">Imaging Analysis</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="samples">Number of Samples</label>
+                            <input type="number" id="samples" name="samples" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" name="message" placeholder="Please describe your project requirements, timeline, and any special requests..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-lg">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Terms Section -->
+    <section id="payment-terms" class="payment-terms">
+        <div class="container">
+            <div class="section-title">
+                <h2>Service Proclaim and Payment Terms</h2>
+            </div>
+
+            <div class="terms-container">
+                <h3>Service Proclaim</h3>
+                <p>At Pathomics, we are committed to delivering high-quality pathology services with precision, reliability, and efficiency. Our team of experienced pathologists and technicians utilizes state-of-the-art technology to provide accurate and timely results for your research and clinical needs.</p>
+                
+                <h3>Quotation Process</h3>
+                <p>All services are provided based on customized quotations tailored to your specific requirements. To request a quote, please contact us via email with detailed information about your project, including service type, sample number, and timeline.</p>
+                
+                <h3>Payment Terms</h3>
+                <ul class="terms-list">
+                    <li>A 50% deposit is required to initiate the project, with the remaining balance due upon completion of services.</li>
+                    <li>Payment methods include bank transfer, credit card, and purchase orders from established institutions.</li>
+                    <li>For academic institutions and non-profit organizations, special pricing may be available upon request.</li>
+                    <li>All invoices are due within 30 days of receipt unless otherwise specified in the service agreement.</li>
+                    <li>Rush services are available for an additional fee, subject to laboratory capacity.</li>
+                </ul>
+                
+                <h3>Confidentiality and Data Security</h3>
+                <p>We maintain strict confidentiality of all client information and research data. Our secure data management systems ensure the protection of your valuable intellectual property and comply with relevant data protection regulations.</p>
+                
+                <h3>Sample Requirements</h3>
+                <p>Specific sample preparation guidelines will be provided upon project initiation to ensure optimal results. Improper sample preparation may affect service quality and turnaround time.</p>
+                
+                <h3>Turnaround Time</h3>
+                <p>Standard turnaround times vary by service type and sample volume. Estimated completion times will be included in your quotation. We strive to meet all deadlines while maintaining our high-quality standards.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>Pathomics</h4>
+                    <p>Advanced pathology services for precision medicine and research applications.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#" data-service="histology">Histology</a></li>
+                        <li><a href="#" data-service="ihc">Immunohistochemistry</a></li>
+                        <li><a href="#" data-service="mif">Multiplex Immunofluorescence</a></li>
+                        <li><a href="#" data-service="tma">Tissue Microarray</a></li>
+                        <li><a href="#">Digital Pathology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#payment-terms">Payment Terms</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hebing@yahoo.com">hebing@yahoo.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Pathomics. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Service navigation and page display
+        function showServicePage(serviceId) {
+            // Hide all service pages
+            document.querySelectorAll('.service-page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the selected service page
+            if (serviceId && serviceId !== 'all') {
+                document.getElementById(serviceId).classList.add('active');
+                
+                // Scroll to the service pages section
+                document.querySelector('.service-pages').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        
+        // Service navigation buttons
+        document.querySelectorAll('.service-nav-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.service-nav-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Show the selected service page
+                const serviceId = this.getAttribute('data-service');
+                showServicePage(serviceId);
+            });
+        });
+        
+        // Learn more links on service cards
+        document.querySelectorAll('.read-more').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const serviceId = this.getAttribute('data-service');
+                
+                // Update navigation button
+                document.querySelectorAll('.service-nav-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-service') === serviceId) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Show the service page
+                showServicePage(serviceId);
+            });
+        });
+        
+        // Back to services links
+        document.querySelectorAll('.back-to-services').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Show all services view
+                document.querySelectorAll('.service-page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Update navigation button
+                document.querySelectorAll('.service-nav-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-service') === 'all') {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Scroll to services section
+                document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        
+        // Footer service links
+        document.querySelectorAll('.footer-col a[data-service]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const serviceId = this.getAttribute('data-service');
+                
+                // Update navigation button
+                document.querySelectorAll('.service-nav-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-service') === serviceId) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Show the service page
+                showServicePage(serviceId);
+            });
+        });
+        
+        // Form submission
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            
+            // Show confirmation
+            alert(`Thank you ${name}! Your request for ${service} services has been submitted. We will contact you at ${email} shortly.`);
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#' || this.hasAttribute('data-service')) return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
