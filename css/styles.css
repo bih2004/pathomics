@@ -412,3 +412,81 @@ footer {
     font-size: 28px;
   }
 }
+
+/* Histology Page Styles */
+.histology-page {
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-header h1 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.content-section {
+    margin-bottom: 60px;
+}
+
+.content-section h2 {
+    color: var(--secondary-color);
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.content-section h3 {
+    color: var(--primary-color);
+    margin: 20px 0 15px;
+    font-size: 1.4em;
+}
+
+.content-section h4 {
+    color: var(--secondary-color);
+    margin: 15px 0 10px;
+    font-size: 1.2em;
+}
+
+.content-section p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.process-steps, .service-types {
+    display: grid;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.step, .service-type {
+    background: var(--light-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.step h3, .service-type h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+@media (min-width: 768px) {
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .service-types {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .process-steps {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
