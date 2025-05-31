@@ -139,15 +139,11 @@ const initScrollHeader = () => {
   });
 };
 
-// Initialize all features
-const initApp = () => {
-  animateOnScroll();
-  initSmoothScroll();
-  initMobileMenu();
-  initDropdownMenus();
-  initLazyLoading();
-  initScrollHeader();
-};
-
-// Run initialization when DOM is ready
-document.addEventListener('DOMContentLoaded', initApp);
+// Initialize all functions when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initMobileMenu();
+    initDropdownMenus();
+    initSmoothScroll();
+    animateOnScroll();
+    initLazyLoading();
+});
