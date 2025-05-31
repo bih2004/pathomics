@@ -490,3 +490,12 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+/* Main Content Styles */
+main {
+    padding-top: 80px; /* Add padding to account for fixed header */
+}
+
+.histology-page {
+    padding-top: 80px; /* Add padding to account for fixed header */
+}
