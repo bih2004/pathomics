@@ -266,17 +266,16 @@
         .service-img {
             height: 200px;
             overflow: hidden;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .service-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .service-card:hover .service-img img {
-            transform: scale(1.05);
+        .service-img i {
+            font-size: 4rem;
+            color: white;
+            opacity: 0.8;
         }
         
         .service-content {
@@ -326,14 +325,14 @@
         
         .services-nav-container {
             display: flex;
-            justify-content: center;
+            overflow-x: auto;
+            padding: 10px 0;
         }
         
         .services-nav-links {
             display: flex;
             gap: 10px;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-wrap: nowrap;
         }
         
         .service-nav-btn {
@@ -347,6 +346,7 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
+            white-space: nowrap;
         }
         
         .service-nav-btn:hover, .service-nav-btn.active {
@@ -419,12 +419,17 @@
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .service-image img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .service-image i {
+            font-size: 8rem;
+            color: white;
+            opacity: 0.8;
         }
         
         .back-to-services {
@@ -445,75 +450,53 @@
         }
         
         .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            background: white;
+            border-radius: var(--radius);
+            padding: 40px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .contact-info {
-            padding: 30px;
+            text-align: center;
         }
         
         .contact-info h3 {
             font-size: 1.8rem;
             margin-bottom: 20px;
+            color: var(--primary-dark);
         }
         
         .contact-info p {
             margin-bottom: 20px;
             color: var(--gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
         
         .contact-info strong {
             color: var(--primary-dark);
         }
         
-        .contact-form {
-            background: white;
+        .contact-details {
+            background: var(--light);
             border-radius: var(--radius);
-            padding: 30px;
-            box-shadow: var(--shadow);
+            padding: 25px;
+            margin-top: 30px;
         }
         
-        .contact-form h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+        .contact-details p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--primary-dark);
-        }
-        
-        .form-group input, 
-        .form-group textarea, 
-        .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--light-gray);
-            border-radius: var(--radius);
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-        
-        .form-group input:focus, 
-        .form-group textarea:focus, 
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(44, 111, 187, 0.1);
-        }
-        
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
+        .contact-details i {
+            color: var(--primary);
+            font-size: 1.2rem;
         }
         
         /* Payment Terms Section */
@@ -633,10 +616,6 @@
                 grid-template-columns: 1fr;
             }
             
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-            
             .hero h1 {
                 font-size: 2.8rem;
             }
@@ -665,6 +644,11 @@
             
             .service-header h1 {
                 font-size: 2.2rem;
+            }
+            
+            .contact-details p {
+                flex-direction: column;
+                text-align: center;
             }
         }
         
@@ -724,8 +708,14 @@
                     <button class="service-nav-btn active" data-service="all">All Services</button>
                     <button class="service-nav-btn" data-service="histology">Histology</button>
                     <button class="service-nav-btn" data-service="ihc">IHC</button>
-                    <button class="service-nav-btn" data-service="mif">Multiplex IF</button>
-                    <button class="service-nav-btn" data-service="tma">Tissue Microarray</button>
+                    <button class="service-nav-btn" data-service="scanning">Slide Scanning</button>
+                    <button class="service-nav-btn" data-service="embedding">Tissue Embedding</button>
+                    <button class="service-nav-btn" data-service="microtomy">Microtomy</button>
+                    <button class="service-nav-btn" data-service="stains">Special Stains</button>
+                    <button class="service-nav-btn" data-service="frozen">Frozen Sections</button>
+                    <button class="service-nav-btn" data-service="consults">Pathology Consults</button>
+                    <button class="service-nav-btn" data-service="digital">Digital Pathology</button>
+                    <button class="service-nav-btn" data-service="rna">RNA/DNA Extraction</button>
                 </div>
             </div>
         </div>
@@ -743,13 +733,11 @@
                 <!-- Histology Service -->
                 <div class="service-card">
                     <div class="service-img">
-                        <div style="background: linear-gradient(135deg, #4361ee, #3a0ca3); height: 100%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-microscope" style="font-size: 4rem; color: white;"></i>
-                        </div>
+                        <i class="fas fa-microscope"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Histology</h3>
-                        <p>Our histology services include tissue processing, embedding, sectioning, and staining with a wide range of histochemical stains.</p>
+                        <h3>Histology Services</h3>
+                        <p>Comprehensive tissue processing, embedding, sectioning, and staining with rapid turnaround times.</p>
                         <a href="#" class="read-more" data-service="histology">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -757,42 +745,108 @@
                 <!-- Immunohistochemistry Service -->
                 <div class="service-card">
                     <div class="service-img">
-                        <div style="background: linear-gradient(135deg, #4cc9f0, #3a0ca3); height: 100%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-vial" style="font-size: 4rem; color: white;"></i>
-                        </div>
+                        <i class="fas fa-vial"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Immunohistochemistry</h3>
-                        <p>Our IHC services detect specific antigens in tissue sections using validated antibodies for biomarker expression analysis.</p>
+                        <h3>Immunohistochemistry (IHC)</h3>
+                        <p>Detection of specific antigens in tissue sections using validated antibodies for biomarker expression.</p>
                         <a href="#" class="read-more" data-service="ihc">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <!-- Multiplex Immunofluorescence Service -->
+                <!-- Slide Scanning Service -->
                 <div class="service-card">
                     <div class="service-img">
-                        <div style="background: linear-gradient(135deg, #7209b7, #3a0ca3); height: 100%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-project-diagram" style="font-size: 4rem; color: white;"></i>
-                        </div>
+                        <i class="fas fa-camera"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Multiplex Immunofluorescence</h3>
-                        <p>Simultaneous detection of multiple biomarkers in a single tissue section for comprehensive tissue analysis.</p>
-                        <a href="#" class="read-more" data-service="mif">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <h3>Slide Scanning</h3>
+                        <p>High-resolution digital slide scanning for remote viewing, sharing, and analysis.</p>
+                        <a href="#" class="read-more" data-service="scanning">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
-                <!-- Tissue Microarray Service -->
+                <!-- Tissue Embedding Service -->
                 <div class="service-card">
                     <div class="service-img">
-                        <div style="background: linear-gradient(135deg, #f72585, #3a0ca3); height: 100%; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-th" style="font-size: 4rem; color: white;"></i>
-                        </div>
+                        <i class="fas fa-box"></i>
                     </div>
                     <div class="service-content">
-                        <h3>Tissue Microarray</h3>
-                        <p>Custom TMA construction, sectioning, and staining for efficient biomarker screening and validation.</p>
-                        <a href="#" class="read-more" data-service="tma">Learn More <i class="fas fa-arrow-right"></i></a>
+                        <h3>Tissue Embedding</h3>
+                        <p>Precision tissue embedding in paraffin blocks for optimal sectioning and analysis.</p>
+                        <a href="#" class="read-more" data-service="embedding">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Microtomy Sectioning Service -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Microtomy Sectioning</h3>
+                        <p>Precise sectioning of paraffin-embedded tissues at various thicknesses for optimal analysis.</p>
+                        <a href="#" class="read-more" data-service="microtomy">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Special Stains Service -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Special Stains</h3>
+                        <p>Comprehensive range of histochemical stains for specific tissue components and microorganisms.</p>
+                        <a href="#" class="read-more" data-service="stains">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Frozen Sections Service -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-snowflake"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Frozen Sections</h3>
+                        <p>Rapid intraoperative frozen section analysis for surgical decision-making.</p>
+                        <a href="#" class="read-more" data-service="frozen">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Pathology Consults Service -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Pathology Consults</h3>
+                        <p>Expert pathology consultations for complex diagnostic cases and second opinions.</p>
+                        <a href="#" class="read-more" data-service="consults">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Digital Pathology Service -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Digital Pathology</h3>
+                        <p>Comprehensive digital pathology solutions including image analysis and data management.</p>
+                        <a href="#" class="read-more" data-service="digital">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- RNA/DNA Extraction Service -->
+                <div class="service-card">
+                    <div class="service-img">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>RNA/DNA Extraction</h3>
+                        <p>High-quality nucleic acid extraction from various sample types for molecular analysis.</p>
+                        <a href="#" class="read-more" data-service="rna">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -825,14 +879,12 @@
                             </ul>
                         </div>
                         
-                        <a href="#contact" class="btn btn-secondary">Request a Quote</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Us</a>
                         <a href="#" class="back-to-services"><i class="fas fa-arrow-left"></i> Back to Services</a>
                     </div>
                     
                     <div class="service-image">
-                        <div style="background: linear-gradient(135deg, #4361ee, #3a0ca3); height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-microscope" style="font-size: 8rem; color: white; opacity: 0.8;"></i>
-                        </div>
+                        <i class="fas fa-microscope"></i>
                     </div>
                 </div>
             </div>
@@ -840,7 +892,7 @@
             <!-- IHC Service Page -->
             <div id="ihc" class="service-page">
                 <div class="service-header">
-                    <h1>Immunohistochemistry Services</h1>
+                    <h1>Immunohistochemistry (IHC) Services</h1>
                     <p>Precision antigen detection for biomarker expression analysis</p>
                 </div>
                 
@@ -850,7 +902,7 @@
                         <p>Our immunohistochemistry (IHC) services detect specific antigens in tissue sections using validated antibodies. We offer single and multiplex IHC with quantitative analysis for biomarker expression in various tissue types.</p>
                         
                         <div class="benefits-list">
-                            <h3>Our IHC Services:</h3>
+                            <h3>Key Benefits:</h3>
                             <ul>
                                 <li><i class="fas fa-vial"></i> <span>Antibody validation and optimization</span></li>
                                 <li><i class="fas fa-search"></i> <span>Single and multiplex IHC staining</span></li>
@@ -860,14 +912,78 @@
                             </ul>
                         </div>
                         
-                        <a href="#contact" class="btn btn-secondary">Request a Quote</a>
+                        <a href="#contact" class="btn btn-secondary">Contact Us</a>
                         <a href="#" class="back-to-services"><i class="fas fa-arrow-left"></i> Back to Services</a>
                     </div>
                     
                     <div class="service-image">
-                        <div style="background: linear-gradient(135deg, #4cc9f0, #3a0ca3); height: 100%; min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-vial" style="font-size: 8rem; color: white; opacity: 0.8;"></i>
+                        <i class="fas fa-vial"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide Scanning Service Page -->
+            <div id="scanning" class="service-page">
+                <div class="service-header">
+                    <h1>Slide Scanning Services</h1>
+                    <p>High-resolution digital imaging for pathology slides</p>
+                </div>
+                
+                <div class="service-content-page">
+                    <div class="service-details">
+                        <h2>Digital Slide Scanning</h2>
+                        <p>Our digital slide scanning services convert glass slides into high-resolution digital images for remote viewing, sharing, and analysis. We offer whole slide imaging with rapid turnaround times and secure data storage options.</p>
+                        
+                        <div class="benefits-list">
+                            <h3>Key Benefits:</h3>
+                            <ul>
+                                <li><i class="fas fa-camera"></i> <span>High-resolution scanning (20x, 40x, 60x)</span></li>
+                                <li><i class="fas fa-cloud"></i> <span>Secure cloud storage options</span></li>
+                                <li><i class="fas fa-shield-alt"></i> <span>Data encryption and security</span></li>
+                                <li><i class="fas fa-tachometer-alt"></i> <span>Rapid turnaround times</span></li>
+                                <li><i class="fas fa-tools"></i> <span>Custom scanning protocols</span></li>
+                            </ul>
                         </div>
+                        
+                        <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                        <a href="#" class="back-to-services"><i class="fas fa-arrow-left"></i> Back to Services</a>
+                    </div>
+                    
+                    <div class="service-image">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tissue Embedding Service Page -->
+            <div id="embedding" class="service-page">
+                <div class="service-header">
+                    <h1>Tissue Embedding Services</h1>
+                    <p>Precision embedding for optimal tissue preservation</p>
+                </div>
+                
+                <div class="service-content-page">
+                    <div class="service-details">
+                        <h2>Professional Tissue Embedding</h2>
+                        <p>Our tissue embedding services ensure optimal orientation and preservation of tissue specimens for high-quality sectioning. We use advanced techniques to handle various tissue types and sizes with precision.</p>
+                        
+                        <div class="benefits-list">
+                            <h3>Key Benefits:</h3>
+                            <ul>
+                                <li><i class="fas fa-box"></i> <span>Precision orientation of tissue specimens</span></li>
+                                <li><i class="fas fa-temperature-low"></i> <span>Temperature-controlled embedding process</span></li>
+                                <li><i class="fas fa-hand-holding-heart"></i> <span>Gentle handling of delicate tissues</span></li>
+                                <li><i class="fas fa-clipboard-list"></i> <span>Detailed documentation of embedding process</span></li>
+                                <li><i class="fas fa-check-double"></i> <span>Quality assurance at every step</span></li>
+                            </ul>
+                        </div>
+                        
+                        <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                        <a href="#" class="back-to-services"><i class="fas fa-arrow-left"></i> Back to Services</a>
+                    </div>
+                    
+                    <div class="service-image">
+                        <i class="fas fa-box"></i>
                     </div>
                 </div>
             </div>
@@ -886,45 +1002,14 @@
 
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <p><strong>Email:</strong> <a href="mailto:hebing@yahoo.com">hebing@yahoo.com</a></p>
-                    <p><strong>For Quotations:</strong> Please email us with your specific requirements, including service type, sample number, and timeline for a customized quote.</p>
-                    <p>Our team of experts is ready to assist you with your pathology needs and provide tailored solutions for your research or clinical applications.</p>
-                </div>
-
-                <div class="contact-form">
-                    <h3>Request a Quote</h3>
-                    <form id="quoteForm">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Service of Interest</label>
-                            <select id="service" name="service" required>
-                                <option value="">Select a Service</option>
-                                <option value="histology">Histology</option>
-                                <option value="ihc">Immunohistochemistry</option>
-                                <option value="mif">Multiplex Immunofluorescence</option>
-                                <option value="tma">Tissue Microarray</option>
-                                <option value="scanning">Digital Slide Scanning</option>
-                                <option value="analysis">Imaging Analysis</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="samples">Number of Samples</label>
-                            <input type="number" id="samples" name="samples" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Project Details</label>
-                            <textarea id="message" name="message" placeholder="Please describe your project requirements, timeline, and any special requests..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-lg">Submit Request</button>
-                    </form>
+                    <h3>Reach Out to Our Team</h3>
+                    <p>Our team of experts is ready to assist you with your pathology needs and provide tailored solutions for your research or clinical applications. Please contact us via email with your specific requirements, including service type, sample number, and timeline for a customized quote.</p>
+                    
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 413 E 69th ST, New York, NY 10021</p>
+                        <p><i class="fas fa-phone"></i> <strong>Tel:</strong> (212) 746-6255</p>
+                        <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:ctp@med.cornell.edu">ctp@med.cornell.edu</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -976,11 +1061,11 @@
                 <div class="footer-col">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#" data-service="histology">Histology</a></li>
+                        <li><a href="#" data-service="histology">Histology Services</a></li>
                         <li><a href="#" data-service="ihc">Immunohistochemistry</a></li>
-                        <li><a href="#" data-service="mif">Multiplex Immunofluorescence</a></li>
-                        <li><a href="#" data-service="tma">Tissue Microarray</a></li>
-                        <li><a href="#">Digital Pathology</a></li>
+                        <li><a href="#" data-service="scanning">Slide Scanning</a></li>
+                        <li><a href="#" data-service="digital">Digital Pathology</a></li>
+                        <li><a href="#" data-service="rna">RNA/DNA Extraction</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -995,12 +1080,14 @@
                 <div class="footer-col">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="mailto:hebing@yahoo.com">hebing@yahoo.com</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> 413 E 69th ST, NY</li>
+                        <li><i class="fas fa-phone"></i> (212) 746-6255</li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:ctp@med.cornell.edu">ctp@med.cornell.edu</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 Pathomics. All rights reserved.</p>
+                <p>&copy; 2025 Pathomics. All rights reserved. | Weill Cornell Medicine</p>
             </div>
         </div>
     </footer>
@@ -1110,22 +1197,6 @@
                 // Show the service page
                 showServicePage(serviceId);
             });
-        });
-        
-        // Form submission
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const service = document.getElementById('service').value;
-            
-            // Show confirmation
-            alert(`Thank you ${name}! Your request for ${service} services has been submitted. We will contact you at ${email} shortly.`);
-            
-            // Reset form
-            this.reset();
         });
         
         // Smooth scrolling for anchor links
